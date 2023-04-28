@@ -1,0 +1,39 @@
+.flex-container {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 960px;
+    height: 960px;
+    align-self: center;
+    background-color: gray;
+    border: 3px solid black;
+  }
+
+.flex-container > div {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(233, 233, 233);
+    width: calc(960px / 16);
+    height: calc(960px / 16);
+}
+
+div {
+    text-align: center;
+}
+
+button {
+    margin: 30px;
+    width: 120px;
+    height: 30px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+h1 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 3em;
+}
