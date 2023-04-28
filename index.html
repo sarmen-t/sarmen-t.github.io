@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <button id="1">Click Me</button>
+        <button id="2">Click Me</button>
+        <button id="3">Click Me</button>
+    </div>
+    <button onclick="alert('Hello World')">Click Me</button>
+    <button id="btn">Click Me 2</button>
+    <script>
+        const buttons = document.querySelectorAll('button');
+
+        // we use the .forEach method to iterate through each button
+        buttons.forEach((button) => {
+
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
+            alert(button.id);
+        });
+        });
+        const btn = document.querySelector('#btn')
+        btn.addEventListener('click', function (e) {
+            e.target.style.background = 'blue';
+          });
+
+        const p = document.createElement('p')
+        p.setAttribute('style', 'color: red')
+        p.textContent = "Hey I'm Red"
+        document.body.appendChild(p)
+
+        const head = document.createElement('h3')
+        head.setAttribute('style', 'color:blue')
+        head.textContent = "I'm a blue h3!"
+        document.body.appendChild(head)
+
+        const divb = document.createElement('div')
+        divb.setAttribute('style', 'border: 2px solid black; background-color: pink')
+        const div_h1 = document.createElement('h1')
+        div_h1.textContent = "I'm in a div"
+        const div_p = document.createElement('p')
+        div_p.textContent = "ME TOO!"
+        document.body.append(divb)
+        divb.appendChild(div_h1)
+        divb.appendChild(div_p)
+        
+    </script>
+</body>
+</html>
