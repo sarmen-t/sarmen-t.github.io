@@ -17,7 +17,7 @@ function createDivs (container, i) {
     boxDiv.setAttribute('id', 'divBox')
     boxDiv.addEventListener('mouseover', function () {
         if (color == 0) {
-            boxDiv.style.backgroundColor = '#202020'
+            boxDiv.style.backgroundColor = '#000000'
         }
         else if (color == 1) {
             boxDiv.style.backgroundColor = '#' + getColor()
