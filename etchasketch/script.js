@@ -101,7 +101,7 @@ function change () {
     createGrid (num)
     divBox = document.querySelectorAll('#divBox')
     for (let i = 0; i < divBox.length; i++) {
-        divBox[i].style.width = `${700/num}px`
-        divBox[i].style.height = `${700/num}px`
+        divBox[i].style.width = `${800/num}px`
+        divBox[i].style.height = `${800/num}px`
         }
 }
