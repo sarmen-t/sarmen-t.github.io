@@ -2,8 +2,8 @@
     display: flex;
     margin: auto;
     flex-wrap: wrap;
-    width: 960px;
-    height: 960px;
+    width: 700px;
+    height: 700px;
     align-self: center;
     background-color: gray;
     border: 3px solid black;
@@ -14,8 +14,13 @@
     text-align: center;
     box-sizing: border-box;
     border: 1px solid rgb(233, 233, 233);
-    width: calc(960px / 16);
-    height: calc(960px / 16);
+    width: calc(700px / 16);
+    height: calc(700px / 16);
+}
+
+div.buttons {
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 div {
@@ -23,7 +28,8 @@ div {
 }
 
 button {
-    margin: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 120px;
     height: 30px;
 }

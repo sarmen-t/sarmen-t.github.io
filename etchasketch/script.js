@@ -1,18 +1,24 @@
 const container = document.getElementById('cont')
 let color = 0
+num = 16
 
 window.onload = function  () {
-    createGrid(16)
+    createGrid(num)
     }
 
 function createGrid (num) {
     x = num*num
-    for (let i = 0; i < x ; i++) {
-        createDivs(container, i)
-        }
+    if (color >= 0 && color <= 2) {
+        for (let i = 0; i < x ; i++) {
+            createDivs(container)
+            }
+    }
+    else if (color == 3){
+        return
+    }
     }
 
-function createDivs (container, i) {
+function createDivs (container) {
     const boxDiv = document.createElement('div')
     boxDiv.setAttribute('id', 'divBox')
     boxDiv.addEventListener('mouseover', function () {
@@ -31,10 +37,22 @@ function createDivs (container, i) {
             }
             curCol = "rgb(" + curCol.join(",") + ")"
             boxDiv.style.backgroundColor = curCol
-        }
-    })
+            }
+        })
     container.append(boxDiv)
-    }
+}
+
+function changeEvList () {
+    const divBox = document.querySelectorAll('#divBox')
+        for (let i = 0; i < divBox.length ; i++) {
+            let oldList = divBox[i].onmouseover
+            divBox[i].removeEventListener('mouseover', oldList )
+            divBox[i].addEventListener('click', function () {
+                divBox[i].style.backgroundColor = '#ffffff'
+            })
+}
+}
+
 
 function deleteGrid () {
     const divBox = document.querySelectorAll('#divBox')
@@ -68,16 +86,22 @@ function darken () {
     color = 2
 }
 
+function whiteOut () {
+    color = 3
+    changeEvList()
+}
+
 function change () {
     let num = 0
     while (num == 0 || num > 60) {
         num = parseFloat(window.prompt("What size (#) grid would you like: (Max: 60):"))
     }
     deleteGrid()
+    color = 0
     createGrid (num)
     divBox = document.querySelectorAll('#divBox')
     for (let i = 0; i < divBox.length; i++) {
-        divBox[i].style.width = `${960/num}px`
-        divBox[i].style.height = `${960/num}px`
+        divBox[i].style.width = `${700/num}px`
+        divBox[i].style.height = `${700/num}px`
         }
 }
