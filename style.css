@@ -16,6 +16,6 @@ div > a {
     font-style: bold;
     color: inherit;
     background-color: rgb(223, 223, 223);
-    padding: 10px;
+    padding: 5px 10px 5px;
     border-radius: 15px;
 }
