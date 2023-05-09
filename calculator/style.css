@@ -22,3 +22,42 @@
     padding: 5px 10px 5px;
     border-radius: 15px;
 }
+
+.calc {
+    background-color: gray;
+    margin: 50px 20% 0px;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    /*grid-template-rows: repeat(5, 20%);*/
+    padding: 10px 10px 10px;
+}
+
+.mainNum {
+    background-color: white;
+    font-family: Andale Mono,AndaleMono,monospace;
+    grid-column: span 4;
+    font-size: 3em;
+    vertical-align: top;
+    text-align: right;
+    margin: 20px 30px 0px;
+    padding: 3%;
+}
+
+.calc > h2 {
+    font-family: Andale Mono,AndaleMono,monospace;
+    background-color: white;
+    margin: 30px;
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.calc > img {
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
