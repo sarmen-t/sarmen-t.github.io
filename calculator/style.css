@@ -1,3 +1,14 @@
+.top > a > h2 {
+    background-color: rgb(230, 230, 230);
+    padding: 5px 10px 5px;
+    border-radius: 15px;
+    flex-grow: 1;
+}
+
+body {
+    background-color: rgb(185, 185, 185);
+}
+
 .top {
     display: flex;
     align-items: center;
@@ -7,6 +18,7 @@
     margin: auto;
     font-family: Andale Mono,AndaleMono,monospace;
     font-size: 3em;
+
 }
 
 .top > a {
@@ -17,14 +29,10 @@
     align-self: center;
 }
 
-.top > a > h2 {
-    background-color: rgb(223, 223, 223);
-    padding: 5px 10px 5px;
-    border-radius: 15px;
-}
 
 .calc {
-    background-color: gray;
+    background-color: rgb(100, 100, 100);
+    border-radius: 15px;
     margin: 50px auto 0px;
     display: grid;
     grid-template-columns: repeat(4, 25%);
@@ -52,5 +60,14 @@
     margin: clamp(5%, 5%, 5%);
     padding: 25px 5% 25px;
     text-align: center;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+p.eq {
+    background-color: rgb(27, 110, 27);
+    color: white;
+}
+
+p.func {
+    background-color: rgb(255, 205, 66);
 }
