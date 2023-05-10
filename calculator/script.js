@@ -230,12 +230,12 @@ function divFunc () {
     if (func == 'div') {
         console.log('hold_num ' + hold_num)
         console.log('inner_num ' + mainNum.innerHTML)
-        mainNum.innerHTML =  parseFloat(hold_num) / parseFloat(mainNum.innerHTML)
+        mainNum.innerHTML =  math.round(parseFloat(hold_num) / parseFloat(mainNum.innerHTML), 5)
     }
     else {
         console.log('hold_num ' + hold_num)
         console.log('inner_num ' + mainNum.innerHTML)
-        mainNum.innerHTML = parseInt(mainNum.innerHTML) / parseInt(hold_num2)
+        mainNum.innerHTML = math.round(parseFloat(mainNum.innerHTML) / parseFloat(hold_num2), 5)
     }
 }
 

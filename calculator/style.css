@@ -25,11 +25,13 @@
 
 .calc {
     background-color: gray;
-    margin: 50px 20% 0px;
+    margin: 50px auto 0px;
     display: grid;
     grid-template-columns: repeat(4, 25%);
     /*grid-template-rows: repeat(5, 20%);*/
     padding: 10px 10px 10px;
+    width: clamp(400px, 50%, 600px);
+
 }
 
 .mainNum {
@@ -39,25 +41,16 @@
     font-size: 3em;
     vertical-align: top;
     text-align: right;
-    margin: 20px 30px 0px;
+    margin: 20px 5% 20px;
     padding: 3%;
 }
 
-.calc > h2 {
+.calc > p {
     font-family: Andale Mono,AndaleMono,monospace;
     background-color: white;
-    margin: 30px;
-    padding: 20px;
+    margin: 5%;
+    margin: clamp(5%, 5%, 5%);
+    padding: 25px 5% 25px;
     text-align: center;
-    font-size: 2em;
-}
-
-.calc > img {
-    margin: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
