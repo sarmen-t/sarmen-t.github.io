@@ -47,13 +47,15 @@ button {
     margin: auto;
     font-family: Andale Mono,AndaleMono,monospace;
     font-size: 3em;
+    position: relative;
+    right: 35px;
 }
 
 .top > a {
     font-family: Andale Mono,AndaleMono,monospace;
     text-decoration: none;
     color: inherit;
-    margin-left: 30px;
+    margin-left: 10px;
     align-self: center;
 }
 

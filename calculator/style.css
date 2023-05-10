@@ -1,9 +1,3 @@
-.top > a > h2 {
-    background-color: rgb(230, 230, 230);
-    padding: 5px 10px 5px;
-    border-radius: 15px;
-}
-
 body {
     background-color: rgb(185, 185, 185);
 }
@@ -18,17 +12,23 @@ body {
     font-family: Andale Mono,AndaleMono,monospace;
     font-size: 3em;
     position: relative;
-    right: 45px;
+    right: 40px;
 }
 
 .top > a {
     font-family: Andale Mono,AndaleMono,monospace;
     text-decoration: none;
     color: inherit;
-    margin-left: 30px;
+    margin-left: 10px;
     align-self: center;
 }
 
+.top > a > h2 {
+    background-color: rgb(230, 230, 230);
+    padding: 5px 10px 5px;
+    border-radius: 15px;
+    text-align: left;
+}
 
 .calc {
     background-color: rgb(100, 100, 100);
