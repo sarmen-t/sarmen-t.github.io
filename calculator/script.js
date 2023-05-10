@@ -74,10 +74,10 @@ function updateNum3 (num) {
 
 for (let i = 0; i < num.length; i++) {
     num[i].addEventListener('click', function (num) {
-        if (func == 'add' || func == 'sub') {
+        if (func == 'add' || func == 'sub' || func == 'mult') {
             updateNum2(num)
         }
-        else if (func == 'eqadd' || func == 'eqsub'){ 
+        else if (func == 'eqadd' || func == 'eqsub' || func == 'eqmult'){ 
         // probably have to change this for other operators
             updateNum3(num)
         }
@@ -123,6 +123,25 @@ sub.addEventListener('click', () => {
     }
 })
 
+const mult = document.getElementById('mult')
+mult.addEventListener('click', () => {
+    if (func == 'mult') {
+        currNum = 0
+        multFunc()
+        hold_num = mainNum.innerHTML
+        console.log('holdnum ' + hold_num)
+    }
+    else {
+        currNum = 0
+        func = 'mult'
+        hold_num = mainNum.innerHTML
+        console.log('holdnum ' + hold_num)
+        mainNum.innerHTML += ' x '
+        //mainNum.innerHTML = 0
+    }
+})
+
+
 const equal = document.getElementById('equal')
 equal.addEventListener('click', () => {
     if (func == 'add') {
@@ -135,12 +154,21 @@ equal.addEventListener('click', () => {
         func = 'eqsub'
         currNum = 0
     }
-    else if (func == 'eqadd'){ //same for this
+    else if (func == 'mult') {
+        multFunc()
+        func = 'eqmult'
+        currNum = 0
+    }
+    else if (func == 'eqadd'){
         addFunc()
         currNum = 0
     }
-    else if (func == 'eqsub'){ //same for this
+    else if (func == 'eqsub'){
         subFunc()
+        currNum = 0
+    }
+    else if (func == 'eqmult'){
+        multFunc()
         currNum = 0
     }
 })
@@ -160,6 +188,15 @@ function subFunc () {
     }
     else {
         mainNum.innerHTML = parseInt(mainNum.innerHTML) - parseInt(hold_num2)
+    }
+}
+
+function multFunc () {
+    if (func == 'mult') {
+        mainNum.innerHTML =  parseInt(hold_num) * parseInt(mainNum.innerHTML)
+    }
+    else {
+        mainNum.innerHTML = parseInt(mainNum.innerHTML) * parseInt(hold_num2)
     }
 }
 
