@@ -74,10 +74,10 @@ function updateNum3 (num) {
 
 for (let i = 0; i < num.length; i++) {
     num[i].addEventListener('click', function (num) {
-        if (func == 'add' || func == 'sub' || func == 'mult') {
+        if (func == 'add' || func == 'sub' || func == 'mult' || func == 'div') {
             updateNum2(num)
         }
-        else if (func == 'eqadd' || func == 'eqsub' || func == 'eqmult'){ 
+        else if (func == 'eqadd' || func == 'eqsub' || func == 'eqmult' || func == 'eqdiv'){ 
         // probably have to change this for other operators
             updateNum3(num)
         }
@@ -141,6 +141,23 @@ mult.addEventListener('click', () => {
     }
 })
 
+const div = document.getElementById('div')
+div.addEventListener('click', () => {
+    if (func == 'div') {
+        currNum = 0
+        divFunc()
+        hold_num = mainNum.innerHTML
+        console.log('holdnum ' + hold_num)
+    }
+    else {
+        currNum = 0
+        func = 'div'
+        hold_num = mainNum.innerHTML
+        console.log('holdnum ' + hold_num)
+        mainNum.innerHTML += ' ÷ '
+        //mainNum.innerHTML = 0
+    }
+})
 
 const equal = document.getElementById('equal')
 equal.addEventListener('click', () => {
@@ -159,6 +176,11 @@ equal.addEventListener('click', () => {
         func = 'eqmult'
         currNum = 0
     }
+    else if (func == 'div') {
+        divFunc()
+        func = 'eqdiv'
+        currNum = 0
+    }
     else if (func == 'eqadd'){
         addFunc()
         currNum = 0
@@ -169,6 +191,10 @@ equal.addEventListener('click', () => {
     }
     else if (func == 'eqmult'){
         multFunc()
+        currNum = 0
+    }
+    else if (func == 'eqdiv'){
+        divFunc()
         currNum = 0
     }
 })
@@ -200,4 +226,16 @@ function multFunc () {
     }
 }
 
+function divFunc () {
+    if (func == 'div') {
+        console.log('hold_num ' + hold_num)
+        console.log('inner_num ' + mainNum.innerHTML)
+        mainNum.innerHTML =  parseFloat(hold_num) / parseFloat(mainNum.innerHTML)
+    }
+    else {
+        console.log('hold_num ' + hold_num)
+        console.log('inner_num ' + mainNum.innerHTML)
+        mainNum.innerHTML = parseInt(mainNum.innerHTML) / parseInt(hold_num2)
+    }
+}
 
