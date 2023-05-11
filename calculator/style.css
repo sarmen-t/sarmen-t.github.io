@@ -46,13 +46,12 @@ h1.mainNum {
     background-color: white;
     font-family: Andale Mono,AndaleMono,monospace;
     grid-column: span 4;
-    font-size: 3rem;
-    max-width: 100%;
+    font-size: 2.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: top;
     text-align: right;
-    margin: 20px 10% 20px;
+    margin: 20px 5% 20px;
     padding: 3%;
     border-radius: 15px;
 }
