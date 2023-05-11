@@ -72,7 +72,7 @@ body {
     .top > h1 {
         margin: auto;
         font-family: Andale Mono,AndaleMono,monospace;
-        font-size: 2em;
+        font-size: 1.5em;
         position: relative;
         right: 35px;
     }
