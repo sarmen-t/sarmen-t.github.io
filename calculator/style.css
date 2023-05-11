@@ -15,16 +15,6 @@ body {
     right: 40px;
 }
 
-@media screen and (max-width: 600px) {
-    .top > h1 {
-        margin: auto;
-        font-family: Andale Mono,AndaleMono,monospace;
-        font-size: 2em;
-        position: relative;
-        right: 40px;
-    }
-}
-
 .top > a {
     font-family: Andale Mono,AndaleMono,monospace;
     text-decoration: none;
@@ -82,4 +72,25 @@ p.eq {
 
 p.func {
     background-color: rgb(255, 205, 66);
+}
+
+@media screen and (max-width: 600px) {
+    .top > h1 {
+        margin: auto;
+        font-family: Andale Mono,AndaleMono,monospace;
+        font-size: 2em;
+        position: relative;
+        right: 40px;
+    }
+    .calc {
+        background-color: rgb(100, 100, 100);
+        border-radius: 15px;
+        margin: 10px auto 0px;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        /*grid-template-rows: repeat(5, 20%);*/
+        padding: 10px 10px 10px;
+        width: clamp(350px, 50%, 600px);
+    
+    }
 }
