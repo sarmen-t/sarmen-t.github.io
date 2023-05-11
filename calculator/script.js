@@ -6,6 +6,8 @@ const num = document.querySelectorAll('#num')
 const mainNum = document.getElementById('mainNum')
 const hnl = document.getElementById('hn')
 
+const funcL = document.getElementById('func')
+
 const clear = document.getElementById('clear')
 clear.addEventListener('click', () => {
     mainNum.innerHTML = 0
@@ -31,7 +33,13 @@ back.addEventListener('click', () => {
 const plusMinus = document.getElementById('plusmin') // only works with first number
 // not during operations
 plusMinus.addEventListener('click', () => {
-    mainNum.innerHTML *= -1
+    if (mainNum.innerHTML != 0 && func == 'none') {
+        mainNum.innerHTML *= -1
+    }
+    else {
+        mainNum.innerHTML = '-'
+    }
+    
 })
 
 function updateNum (num) {
@@ -89,6 +97,8 @@ for (let i = 0; i < num.length; i++) {
 
 const add = document.getElementById('add')
 add.addEventListener('click', () => {
+    preSolv(func, 'add')
+    funcL.innerHTML = 'func: add'
     if (func == 'add') {
         currNum = 0
         addFunc()
@@ -107,6 +117,8 @@ add.addEventListener('click', () => {
 
 const sub = document.getElementById('sub')
 sub.addEventListener('click', () => {
+    preSolv(func, 'sub')
+    funcL.innerHTML = 'func: sub'
     if (func == 'sub') {
         currNum = 0
         subFunc()
@@ -125,6 +137,8 @@ sub.addEventListener('click', () => {
 
 const mult = document.getElementById('mult')
 mult.addEventListener('click', () => {
+    preSolv(func, 'mult')
+    funcL.innerHTML = 'func: mult'
     if (func == 'mult') {
         currNum = 0
         multFunc()
@@ -143,6 +157,8 @@ mult.addEventListener('click', () => {
 
 const div = document.getElementById('div')
 div.addEventListener('click', () => {
+    preSolv(func, 'div')
+    funcL.innerHTML = 'func: div'
     if (func == 'div') {
         currNum = 0
         divFunc()
@@ -199,30 +215,46 @@ equal.addEventListener('click', () => {
     }
 })
 
+function preSolv(func, inner_func) {
+    if (func == inner_func) {}
+    else if (func == 'add') {
+        addFunc()
+    }
+    else if (func == 'sub') {
+        subFunc()
+    }
+    else if (func == 'mult') {
+        multFunc()
+    }
+    else if (func == 'div') {
+        divFunc()
+    }
+}
+
 function addFunc () {
     if (func == 'add') {
-        mainNum.innerHTML = parseInt(mainNum.innerHTML) + parseInt(hold_num)
+        mainNum.innerHTML = parseFloat(mainNum.innerHTML) + parseFloat(hold_num)
     }
     else {
-        mainNum.innerHTML = parseInt(mainNum.innerHTML) + parseInt(hold_num2)
+        mainNum.innerHTML = parseFloat(mainNum.innerHTML) + parseFloat(hold_num2)
     }
 }
 
 function subFunc () {
     if (func == 'sub') {
-        mainNum.innerHTML =  parseInt(hold_num) - parseInt(mainNum.innerHTML)
+        mainNum.innerHTML =  parseFloat(hold_num) - parseFloat(mainNum.innerHTML)
     }
     else {
-        mainNum.innerHTML = parseInt(mainNum.innerHTML) - parseInt(hold_num2)
+        mainNum.innerHTML = parseFloat(mainNum.innerHTML) - parseFloat(hold_num2)
     }
 }
 
 function multFunc () {
     if (func == 'mult') {
-        mainNum.innerHTML =  parseInt(hold_num) * parseInt(mainNum.innerHTML)
+        mainNum.innerHTML =  parseFloat(hold_num) * parseFloat(mainNum.innerHTML)
     }
     else {
-        mainNum.innerHTML = parseInt(mainNum.innerHTML) * parseInt(hold_num2)
+        mainNum.innerHTML = parseFloat(mainNum.innerHTML) * parseFloat(hold_num2)
     }
 }
 
