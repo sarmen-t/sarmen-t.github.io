@@ -7,7 +7,7 @@ body {
     align-items: center;
 }
 
-.top > h1 {
+h1.title {
     margin: auto;
     font-family: Andale Mono,AndaleMono,monospace;
     font-size: 3em;
@@ -42,11 +42,14 @@ body {
 
 }
 
-.mainNum {
+h1.mainNum {
     background-color: white;
     font-family: Andale Mono,AndaleMono,monospace;
     grid-column: span 4;
-    font-size: 3em;
+    font-size: 3rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     vertical-align: top;
     text-align: right;
     margin: 20px 10% 20px;
@@ -56,7 +59,7 @@ body {
 
 .calc > p {
     font-family: Andale Mono,AndaleMono,monospace;
-    background-color: white;
+    background-color: rgb(230, 230, 230);
     margin: 5%;
     margin: clamp(5%, 5%, 5%);
     padding: 25px 5% 25px;
@@ -72,6 +75,10 @@ p.eq {
 
 p.func {
     background-color: rgb(255, 205, 66);
+}
+
+p.back {
+    background-color: rgb(255, 100, 100);
 }
 
 @media screen and (max-width: 600px) {

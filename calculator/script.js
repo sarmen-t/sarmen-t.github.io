@@ -1,23 +1,21 @@
 let hold_num = 0
 let hold_num2 = 0
 let func = 'none'
+let currNum = 0
 
 const num = document.querySelectorAll('#num')
 const mainNum = document.getElementById('mainNum')
 const hnl = document.getElementById('hn')
 
-const funcL = document.getElementById('func')
-
 const clear = document.getElementById('clear')
 clear.addEventListener('click', () => {
     mainNum.innerHTML = 0
-    mainNum.style.fontSize = '3em'
+    //mainNum.style.fontSize = '3em'
     func = 'none'
     hold_num = 0
-    console.log('holdnum ' + hold_num)
+    currNum = 0
     console.clear()
 })
-//50 + 
 const back = document.getElementById('back')
 back.addEventListener('click', () => {
     if (mainNum.innerHTML == 0){}
@@ -40,35 +38,63 @@ back.addEventListener('click', () => {
         mainNum.innerHTML = hold
     }
 })
+
 const plusMinus = document.getElementById('plusmin')
 plusMinus.addEventListener('click', () => {
-    if (mainNum.innerHTML != 0 && func == 'none') {
+    if (mainNum.innerHTML != 0) {
         mainNum.innerHTML *= -1
+        hold_num2 *= -1
     }
     else {
         currNum = '-'
         mainNum.innerHTML = '-'
     }
-    
 })
 
 function updateNum (num) {
+    console.log('updateNum')
+    console.log(currNum)
     currNum = mainNum.innerHTML
-    if (currNum == 0) {
+    if (currNum == 0 && !mainNum.innerHTML.includes('.')) {
         mainNum.innerHTML = num.target.innerHTML
         hold_num2 = mainNum.innerHTML
+    }
+    else if (mainNum.innerHTML.includes('.')) {
+        if (num.target.innerHTML == '.') {}
+        else {
+            mainNum.innerHTML = currNum + num.target.innerHTML
+            hold_num2 = mainNum.innerHTML
+        }
     }
     else { 
         mainNum.innerHTML = currNum + num.target.innerHTML
         hold_num2 = mainNum.innerHTML
     }
 }
+////////////// ADD to fixed to truncate
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
 
 function updateNum2 (num) {
-    if (currNum == 0) {
+    console.log('updateNum2')
+    console.log(currNum)
+    if (currNum == 0 && !mainNum.innerHTML.includes('.')) {
         mainNum.innerHTML = num.target.innerHTML
         currNum = mainNum.innerHTML
         hold_num2 = mainNum.innerHTML
+    }
+    else if (currNum == 0) {
+        mainNum.innerHTML = num.target.innerHTML
+        currNum = mainNum.innerHTML
+        hold_num2 = mainNum.innerHTML
+    }
+    else if (mainNum.innerHTML.includes('.')) {
+        if (num.target.innerHTML == '.') {}
+        else {
+            mainNum.innerHTML += num.target.innerHTML
+            hold_num2 = mainNum.innerHTML
+        }
     }
     else {
         mainNum.innerHTML = currNum + num.target.innerHTML
@@ -78,10 +104,19 @@ function updateNum2 (num) {
 }
 
 function updateNum3 (num) {
+    console.log('updatenum3')
+    console.log(currNum)
     if (currNum == 0) {
         mainNum.innerHTML = num.target.innerHTML
         currNum = mainNum.innerHTML
         hold_num2 = mainNum.innerHTML
+    }
+    else if (mainNum.innerHTML.includes('.')) {
+        if (num.target.innerHTML == '.') {}
+        else {
+            mainNum.innerHTML += num.target.innerHTML
+            hold_num2 = mainNum.innerHTML
+        }
     }
     else {
         currNum = mainNum.innerHTML
@@ -92,7 +127,7 @@ function updateNum3 (num) {
 
 for (let i = 0; i < num.length; i++) {
     num[i].addEventListener('click', function (num) {
-        if (func == 'add' || func == 'sub' || func == 'mult' || func == 'div') {
+        if (func == 'add' || func == 'sub' || func == 'mult' || func == 'div' || func == 'inv') {
             updateNum2(num)
         }
         else if (func == 'eqadd' || func == 'eqsub' || func == 'eqmult' || func == 'eqdiv'){ 
@@ -107,7 +142,6 @@ for (let i = 0; i < num.length; i++) {
 const add = document.getElementById('add')
 add.addEventListener('click', () => {
     preSolv(func, 'add')
-    funcL.innerHTML = 'func: add'
     if (func != 'add') {
         currNum = 0
         func = 'add'
@@ -121,7 +155,6 @@ add.addEventListener('click', () => {
 const sub = document.getElementById('sub')
 sub.addEventListener('click', () => {
     preSolv(func, 'sub')
-    funcL.innerHTML = 'func: sub'
     if (func != 'sub') {
         currNum = 0
         func = 'sub'
@@ -135,7 +168,6 @@ sub.addEventListener('click', () => {
 const mult = document.getElementById('mult')
 mult.addEventListener('click', () => {
     preSolv(func, 'mult')
-    funcL.innerHTML = 'func: mult'
     if (func != 'mult') {
         currNum = 0
         func = 'mult'
@@ -149,7 +181,6 @@ mult.addEventListener('click', () => {
 const div = document.getElementById('div')
 div.addEventListener('click', () => {
     preSolv(func, 'div')
-    funcL.innerHTML = 'func: div'
     if (func != 'div'){
         currNum = 0
         func = 'div'
@@ -162,6 +193,7 @@ div.addEventListener('click', () => {
 
 const equal = document.getElementById('equal')
 equal.addEventListener('click', () => {
+    console.log(func)
     if (func == 'add' || func == 'eqadd') {
         addFunc()
         func = 'eqadd'
@@ -184,11 +216,23 @@ equal.addEventListener('click', () => {
     }
 })
 
+const inv = document.getElementById('inv')
+inv.addEventListener('click', () => {
+    mainNum.innerHTML = math.round(1 / parseFloat(mainNum.innerHTML), 7)
+    func = 'inv'
+})
+
 function preSolv(func, inner_func) {
     if (func == inner_func) {
         if (func == 'add') {
             currNum = 0
             addFunc()
+            hold_num = mainNum.innerHTML
+            console.log('holdnum ' + hold_num)
+        }
+        else if (func == 'sub') {
+            currNum = 0
+            subFunc()
             hold_num = mainNum.innerHTML
             console.log('holdnum ' + hold_num)
         }
@@ -201,12 +245,6 @@ function preSolv(func, inner_func) {
         else if (func == 'mult') {
             currNum = 0
             multFunc()
-            hold_num = mainNum.innerHTML
-            console.log('holdnum ' + hold_num)
-        }
-        else if (func == 'sub') {
-            currNum = 0
-            subFunc()
             hold_num = mainNum.innerHTML
             console.log('holdnum ' + hold_num)
         }
@@ -259,14 +297,13 @@ function divFunc () {
         return
     } 
     if (func == 'div') {
-        console.log('hold_num ' + hold_num)
-        console.log('inner_num ' + mainNum.innerHTML)
         mainNum.innerHTML =  math.round(parseFloat(hold_num) / parseFloat(mainNum.innerHTML), 7)
     }
     else {
-        console.log('hold_num ' + hold_num)
-        console.log('inner_num ' + mainNum.innerHTML)
         mainNum.innerHTML = math.round(parseFloat(mainNum.innerHTML) / parseFloat(hold_num2), 7)
     }
 }
 
+function trunc (num, places) {
+    return Math.trunc(num * Math.pow(10, places)) / Math.pow(10, places)
+}
