@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(185, 185, 185);
+}
+
+.top {
+    display: flex;
+    align-items: center;
+}
+
+h1.title {
+    margin: auto;
+    font-family: Andale Mono,AndaleMono,monospace;
+    font-size: 3em;
+    position: relative;
+    right: 40px;
+}
+
+.top > a {
+    font-family: Andale Mono,AndaleMono,monospace;
+    text-decoration: none;
+    color: inherit;
+    margin-left: 10px;
+    align-self: center;
+}
+
+.top > a > h2 {
+    background-color: rgb(230, 230, 230);
+    padding: 5px 10px 5px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .top > h1 {
+        margin: auto;
+        font-family: Andale Mono,AndaleMono,monospace;
+        font-size: 2em;
+        position: relative;
+        right: 40px;
+    }
+}
