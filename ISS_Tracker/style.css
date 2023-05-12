@@ -5,6 +5,7 @@ body {
 .top {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 h1.title {
