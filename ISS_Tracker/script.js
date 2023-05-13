@@ -1,20 +1,24 @@
-const iLat = document.getElementById('iLat');
-const iLon = document.getElementById('iLon');
-const uLat = document.getElementById('uLat');
-const uLon = document.getElementById('uLon');
+const iLat = document.getElementById('iLat')
+const iLon = document.getElementById('iLon')
+const uLat = document.getElementById('uLat')
+const uLon = document.getElementById('uLon')
 const iss = document.getElementById("iss")
+const uLoc = document.getElementById("userLoc")
 
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            uLat.innerHTML = 'User Latitude: ' + position.coords['latitude']
-            uLon.innerHTML = 'User Longitude: ' + position.coords['longitude']
+            uLat.innerHTML = 'User Latitude: ' + position.coords['latitude'].toFixed(4)
+            uLon.innerHTML = 'User Longitude: ' + position.coords['longitude'].toFixed(4)
+            uLoc.style.top = `${convLat(parseFloat(position.coords['latitude']))}%`
+            uLoc.style.left = `${convLon(parseFloat(position.coords['longitude']))}%`
           })
     } 
     else {
         uLat.innerHTML = 'Location Permissions Denied'
         uLon.innerHTML = 'Location Permissions Denied'
     }
+
 }
 
 getLocation()
@@ -33,10 +37,10 @@ async function getIssPosition() {
 function updateLatLon() {
     getIssPosition()
         .then(data => {
-        iLat.innerHTML = 'ISS Latitude: ' + data['latitude']
-        convLat(data['latitude'])
-        iLon.innerHTML = 'ISS Longitude: ' + data['longitude']
-        convLon(data['longitude'])
+        iLat.innerHTML = 'ISS Latitude: ' + data['latitude'].toFixed(4)
+        iss.style.top = `${convLat(data['latitude'])}%`
+        iLon.innerHTML = 'ISS Longitude: ' + data['longitude'].toFixed(4)
+        iss.style.left = `${convLon(data['longitude'])}%`
         })
         .catch(error => console.log(error))
         setTimeout(updateLatLon, 5000)
@@ -53,9 +57,9 @@ function convLat (num) {
         lat = ((parseFloat(num) + 90) / 90) * 50
     }
     else if (num > 0) {
-        lat = (parseFloat(num) * (5/9)) + 50
+        lat = -(parseFloat(num) * (5/9)) + 50
     }
-    iss.style.top = `${lat}%`
+    return lat
 }
 
 function convLon (num) {
@@ -66,7 +70,7 @@ function convLon (num) {
     else if (num > 0) { 
         lon = (parseFloat(num) / 180) * 50 + 50
     }
-    iss.style.left = `${lon}%`
+    return lon
 }
 
 

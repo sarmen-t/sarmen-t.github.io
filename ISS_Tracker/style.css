@@ -24,7 +24,7 @@ body {
 }
 
 td {
-    margin: 0px 50px 0px;
+    width: 300px;
 }
 
 .container {
@@ -43,6 +43,15 @@ td {
     position: absolute;
     height: clamp(1%, 6%, 10%);
     filter: drop-shadow(0 0 1px rgb(0, 0, 0));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+}
+
+.user {
+    position: absolute;
+    filter: drop-shadow(0 0 1px rgb(255, 255, 255));
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
