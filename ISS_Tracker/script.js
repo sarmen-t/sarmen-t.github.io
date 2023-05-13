@@ -48,28 +48,13 @@ function updateLatLon() {
 
 updateLatLon();
 
-const latslider = document.getElementById("lat")
-const lonslider = document.getElementById("lon")
-
 function convLat (num) {
-    let lat = 0
-    if (num < 0) {
-        lat = 50 + (num / -(9/5)) 
-    }
-    else if (num > 0) {
-        lat = -(parseFloat(num) * (5/9)) + 50
-    }
+    let lat = 50 - (parseFloat(num) * (5/9))
     return lat
 }
 
 function convLon (num) {
-    let lon = 0
-    if (num < 0) { 
-        lon = ((parseFloat(num) + 180) / 180) * 50 
-    }
-    else if (num > 0) { 
-        lon = (parseFloat(num) / 180) * 50 + 50
-    }
+    let lon = (parseFloat(num) * (5/18)) + 50
     return lon
 }
 
