@@ -21,22 +21,22 @@ getLocation()
 
 async function getIssPosition() {
     try {
-        const response = await fetch('http://api.open-notify.org/iss-now.json')
+        const response = await fetch('https://api.wheretheiss.at/v1/satellites/25544')
         const data = await response.json()
         return data
     }
     catch (err) {
         console.log(err)
     }
-    }
-  
+}
+
 function updateLatLon() {
     getIssPosition()
         .then(data => {
-        iLat.innerHTML = 'ISS Latitude: ' + data['iss_position']['latitude']
-        convLat(data['iss_position']['latitude'])
-        iLon.innerHTML = 'ISS Longitude: ' + data['iss_position']['longitude']
-        convLon(data['iss_position']['longitude'])
+        iLat.innerHTML = 'ISS Latitude: ' + data['latitude']
+        convLat(data['latitude'])
+        iLon.innerHTML = 'ISS Longitude: ' + data['longitude']
+        convLon(data['longitude'])
         })
         .catch(error => console.log(error))
         setTimeout(updateLatLon, 5000)
