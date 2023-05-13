@@ -54,7 +54,9 @@ const lonslider = document.getElementById("lon")
 function convLat (num) {
     let lat = 0
     if (num < 0) {
-        lat = ((parseFloat(num) + 90) / 90) * 50
+        console.log("jere")
+        lat = 50 + (num / -(9/5)) 
+        console.log(lat)
     }
     else if (num > 0) {
         lat = -(parseFloat(num) * (5/9)) + 50
