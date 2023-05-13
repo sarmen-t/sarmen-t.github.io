@@ -23,6 +23,7 @@ function getIssPosition() {
     return fetch('http://api.open-notify.org/iss-now.json')
       .then(response => response.json())
       .then(data => { return data })
+      .catch(err => { console.error(err) })
     }
   
 function updateLatLon() {
@@ -50,7 +51,6 @@ function convLat (num) {
     else if (num > 0) {
         lat = (parseFloat(num) * (5/9)) + 50
     }
-    console.log(lat.toFixed(2))
     iss.style.top = `${lat}%`
 }
 
