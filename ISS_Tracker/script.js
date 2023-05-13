@@ -23,7 +23,7 @@ function getIssPosition() {
     return fetch('http://api.open-notify.org/iss-now.json')
       .then(response => response.json())
       .then(data => { return data })
-      .catch(err => { console.error(err) })
+      .catch(err => { console.log(err) })
     }
   
 function updateLatLon() {
