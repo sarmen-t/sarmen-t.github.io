@@ -20,13 +20,9 @@ function getLocation() {
 getLocation()
 
 async function getIssPosition() {
-    try {
-        const response = await fetch('http://api.open-notify.org/iss-now.json');
-        const data = await response.json();
-        return data;
-    } catch (err) {
-        console.log(err);
-    }
+    const response = await fetch('http://api.open-notify.org/iss-now.json');
+    const data = await response.json();
+    return data;
     }
   
 function updateLatLon() {
