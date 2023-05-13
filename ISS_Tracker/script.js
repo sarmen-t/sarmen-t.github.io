@@ -5,8 +5,6 @@ const uLon = document.getElementById('uLon')
 const iss = document.getElementById("iss")
 const uLoc = document.getElementById("userLoc")
 
-console.log(uLoc)
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
