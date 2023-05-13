@@ -70,37 +70,4 @@ function convLon (num) {
 }
 
 
-// latslider.oninput = () => {
-//     if (latslider.value < 0) {
-//         let lat = ((parseFloat(latslider.value) + 90) / 90) * 50
-//         console.log('below 0 ' + latslider.value, lat)
-//         updateTop(lat)
-//     }
-//     else if (latslider.value > 0) {
-//         let lat = (parseFloat(latslider.value) * (5/9)) + 50
-//         console.log(latslider.value, lat)
-//         updateTop(lat)
-//     }
-// }
-
-// lonslider.oninput = () => {
-//     if (lonslider.value < 0) {
-//         let lon = ((parseFloat(lonslider.value) + 180) / 180) * 50
-//         console.log(lonslider.value, lon)
-//         updateLeft(lon)
-//     }
-//     else if (lonslider.value > 0) {
-//         let lon = ((parseFloat(lonslider.value) / 180) * 50 + 50)
-//         console.log(lonslider.value, lon)
-//         updateLeft(lon)
-//     }
-// // }
-
-// function updateLeft(num) {
-//     iss.style.left = `${num}%`
-// }
-
-// function updateTop(num) {
-//     iss.style.top = `${num}%`
-// }
-
+// Mark user location on map
